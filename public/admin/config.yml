@@ -4,14 +4,15 @@ collections:
     folder: "src/content/news" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     fields: # The fields for each document, usually in frontmatter
-      - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "thumbnail", widget: "image" }
-      - { label: "Rating (scale of 1-5)", name: "rating", widget: "number" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+      - { label: "Hero Image", name: "heroImage", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
-media_folder: "src/assets/images" # Location where files will be stored in the repo
-public_folder: "src/assets/images" # The src attribute for uploaded media
+
+media_folder: "public/images" # Location where files will be stored in the repo
+public_folder: "public" # The src attribute for uploaded media
 backend:
   name: github
-  repo: studentskeblokade/sajt # Branch to update (optional; defaults to master)
+  repo: studentskeblokade/sajt
+  branch: to-publish
