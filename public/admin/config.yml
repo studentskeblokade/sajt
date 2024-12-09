@@ -13,4 +13,6 @@ collections:
 media_folder: "public/images" # Location where files will be stored in the repo
 public_folder: "/images" # The src attribute for uploaded media
 backend:
-  name: git-gateway
+  name: github
+  repo: studentskeblokade/sajt
+  branch: to-publish
