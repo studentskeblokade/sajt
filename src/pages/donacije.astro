@@ -1,0 +1,116 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<style>
+    arcgis-map {
+		height: clamp(50vh, 700px, 60vh);
+        display: block;
+		overflow: hidden;
+		margin-bottom: 5rem;
+		border: 2px solid black;
+		border-radius: 2rem;
+    }
+
+	article {
+		border: 2px solid black;
+		border-radius: 1rem;
+		padding: 1rem 2rem;
+		margin-bottom: 2rem;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		gap: 0.5rem;
+	}
+
+	.pill {
+		border: 1px solid black;
+		padding: 0.2rem 0.6rem;
+		border-radius: 100000px;
+	}
+
+	.hitno {
+		border-color: var(--accent);
+		color: var(--accent);
+	}
+
+	.nebitno {
+		color: gray;
+		border-color: gray;
+	}
+
+	search [type="text"] {
+		background-color: #f0f0f0;
+		border: none;
+		padding: 0.5rem;
+		border-radius: 0.5rem;
+	}
+
+	search button {
+		padding: 0.5rem;
+		border: none;
+		border-radius: 0.5rem;
+		background-color: var(--accent);
+		color: white;
+		font-weight: bold;
+	}
+
+	hr {
+		margin-bottom: 2rem;
+	}
+</style>
+
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<title>Donacije - Studentske Blokade</title>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Donacije!</h1>
+			<p>Ukoliko želite da pomognete našoj borbi, ispod se nalazi spisak univerziteta i njihovih institucija u blokadi, te je uz svaku takođe i prikačena lista namirnica koje su im trenutno potrebne.</p>
+            <arcgis-map item-id="6bf7de9d26214315a6127780191ddad9">
+				<arcgis- position="top-right"></arcgis->
+			</arcgis-map>
+			<section>
+				<h2>Lista fakulteta</h2>
+				<search>
+					<label for="pretraga">Pretraga</label>
+					<input id="pretraga" type="text" />
+					<button>Pretraži</button>
+				</search>
+				<hr>
+				<article>
+					<h3>Matematički fakultet</h3>
+					<ul>
+						<li>
+							<span class="pill hitno">hitno</span>
+							Gotova hrana
+						</li>
+						<li>Čepići za uši</li>
+						<li>
+							<span class="pill nebitno">nebitno</span>
+							Energetska pića
+						</li>
+					</ul>
+				</article>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<script>
+	import "@arcgis/map-components/dist/components/arcgis-map";
+	import "@arcgis/map-components/dist/components/arcgis-legend";
+	import "@arcgis/map-components/dist/components/arcgis-feature";
+</script>
