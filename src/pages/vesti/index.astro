@@ -6,7 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 
-const posts = (await getCollection('news')).sort(
+const posts = (await getCollection('vesti')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
@@ -93,7 +93,7 @@ const posts = (await getCollection('news')).sort(
 					{
 						posts.map((post) => (
 							<li>
-								<a href={`/news/${post.id}/`}>
+								<a href={`/vesti/${post.id}/`}>
 									<img width={720} height={360} src={post.data.heroImage} alt="" />
 									<h4 class="title">{post.data.title}</h4>
 									<p class="date">
