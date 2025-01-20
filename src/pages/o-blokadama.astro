@@ -1,35 +1,46 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
-<Layout
-	title="O Blokadama"
-	description="Sve o blokadama"
->
-	<p>
-		Pad nadstrešnice na Železničkoj stanici u Novom Sadu 1.11.2024. kojim je nastradalo 15 ljudi inicirao je spontana okupljanja, u vidu 15 minuta ćutanja za žrtve. Građani se i dalje okupljaju na različitim mestima, uvek u isto vreme, u 11:52.
-	</p>
-	<p>
-		Studenti i profesori Fakulteta dramskih umetnosti u Beogradu okupili su se 22. novembra 2024. godine, u neposrednoj blizini fakulteta, kako bi odali počast poginulima u Novom Sadu. Tokom skupa, koji je bio unapred najavljen, studenti i profesori FDU bili su fizički napadnuti od strane organizovane grupe. Dvoje studenata FDU zadobilo je lakše telesne povrede.
-	</p>
-	<p>
-		Četiri dana nakon napada na studente, kolege sa FDU započinju blokadu svog fakulteta usled nereagovanja policije i tužilaštva u vezi sa napadom koji se dogodio 22.11.2024. godine. Njihova odlučnost raširila se širimo države, zahvatajući svih 5 državnih univerziteta, mnogo druge fakultete i više škole, ali i srednje škole.
-	</p>
-	<p>
-		Nakon FDU, ponedeljka 2. decembra bila je blokirana zgrada Rektorata Univerziteta u Beogradu, a u blokadu ulaze i Filozofski, Filološki, Hemijski i Matematički fakultet u Beogradu.
-	</p>
-	<p>
-		Narednih dana, jedan po jedan fakultet je stupao u blokadu i to principom direktne demokratije. Studenti su na svojim fakultetima počeli da organizuju Plenume na kojima odlučuju o svim aktivnostima. Prve odluke fakultetskih plenuma su bile baš blokade, odnosno stupanje u iste.
-	</p>
-	<p>
-		U blokadama je trenutno oko 60 fakulteta i viših škola širom Srbije.
-	</p>
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>O blokadama</h1>
+			<p>
+				Pad nadstrešnice na Železničkoj stanici u Novom Sadu 1.11.2024. kojim je nastradalo 15 ljudi inicirao je spontana okupljanja, u vidu 15 minuta ćutanja za žrtve. Građani se i dalje okupljaju na različitim mestima, uvek u isto vreme, u 11:52.
+			</p>
+			<p>
+				Studenti i profesori Fakulteta dramskih umetnosti u Beogradu okupili su se 22. novembra 2024. godine, u neposrednoj blizini fakulteta, kako bi odali počast poginulima u Novom Sadu. Tokom skupa, koji je bio unapred najavljen, studenti i profesori FDU bili su fizički napadnuti od strane organizovane grupe. Dvoje studenata FDU zadobilo je lakše telesne povrede.
+			</p>
+			<p>
+				Četiri dana nakon napada na studente, kolege sa FDU započinju blokadu svog fakulteta usled nereagovanja policije i tužilaštva u vezi sa napadom koji se dogodio 22.11.2024. godine. Njihova odlučnost raširila se širimo države, zahvatajući svih 5 državnih univerziteta, mnogo druge fakultete i više škole, ali i srednje škole.
+			</p>
+			<p>
+				Nakon FDU, ponedeljka 2. decembra bila je blokirana zgrada Rektorata Univerziteta u Beogradu, a u blokadu ulaze i Filozofski, Filološki, Hemijski i Matematički fakultet u Beogradu.
+			</p>
+			<p>
+				Narednih dana, jedan po jedan fakultet je stupao u blokadu i to principom direktne demokratije. Studenti su na svojim fakultetima počeli da organizuju Plenume na kojima odlučuju o svim aktivnostima. Prve odluke fakultetskih plenuma su bile baš blokade, odnosno stupanje u iste.
+			</p>
+			<p>
+				U blokadama je trenutno oko 60 fakulteta i viših škola širom Srbije.
+			</p>
 
-	<h2>Zahtevi</h2>
-	<ul>
-		<li>Objava celokupne dokumentacije koja se tiče rekonstruisanja Železničke stanice u Novom Sadu koja je trenutno nedostupna javnosti.</li>
-		<li>Zahtevamo potvrdu nadležnih organa o identitetu svih lica za koja postoji osnovana sumnja da su fizički napala studente i profesore, kao i pokretanje krivičnih postupaka protiv njih. Takođe zahtevamo razrešenje pomenutih lica ukoliko se pokaže da su ista javni funkcioneri.</li>
-		<li>Odbacivanje krivičnih prijava protiv uhapšenih i privedenih studenata na protestima, kao i obustavu već pokrenutih krivičnih postupaka.</li>
-		<li>Povećanje budžeta za visoko obrazovanje u iznosu od 20%.</li>
-	</ul>
-</Layout>
+			<h2>Zahtevi</h2>
+			<ul>
+				<li>Objava celokupne dokumentacije koja se tiče rekonstruisanja Železničke stanice u Novom Sadu koja je trenutno nedostupna javnosti.</li>
+				<li>Zahtevamo potvrdu nadležnih organa o identitetu svih lica za koja postoji osnovana sumnja da su fizički napala studente i profesore, kao i pokretanje krivičnih postupaka protiv njih. Takođe zahtevamo razrešenje pomenutih lica ukoliko se pokaže da su ista javni funkcioneri.</li>
+				<li>Odbacivanje krivičnih prijava protiv uhapšenih i privedenih studenata na protestima, kao i obustavu već pokrenutih krivičnih postupaka.</li>
+				<li>Povećanje budžeta za visoko obrazovanje u iznosu od 20%.</li>
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>
