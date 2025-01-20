@@ -6,13 +6,21 @@ import { SITE_TITLE } from '../consts';
 <header>
 	<nav>
 		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
-			<HeaderLink href="/o-blokadama">O Blokadama</HeaderLink>
-			<HeaderLink href="/vesti">Vesti</HeaderLink>
-			<HeaderLink href="/akcije">Akcije</HeaderLink>
-			<HeaderLink href="/donacije">Donacije</HeaderLink>
-			<HeaderLink href="/kontakt">Kontakt</HeaderLink>
+
+		<button popovertarget="menu-links">
+			Meni
+		</button>
+
+		<div id="menu-links" popover>
+			<nav class="internal-links">
+				<HeaderLink href="/o-blokadama">O Blokadama</HeaderLink>
+				<HeaderLink href="/vesti">Vesti</HeaderLink>
+				<HeaderLink href="/akcije">Akcije</HeaderLink>
+				<HeaderLink href="/donacije">Donacije</HeaderLink>
+				<HeaderLink href="/kontakt">Kontakt</HeaderLink>
+			</nav>
 		</div>
+
 	</nav>
 </header>
 <style>
@@ -21,38 +29,82 @@ import { SITE_TITLE } from '../consts';
 		padding: 0 1em;
 		background: white;
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+		top: 0;
+		position: sticky;
 	}
+
 	h2 {
 		margin: 0;
 		font-size: 1em;
+		padding-block: 1em;
 	}
 
 	h2 a,
 	h2 a.active {
 		text-decoration: none;
 	}
+
 	nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 	}
+
 	nav a {
 		padding: 1em 0.5em;
 		color: var(--black);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
 	}
+
 	nav a.active {
 		text-decoration: none;
 		border-bottom-color: var(--accent);
 	}
+
 	.social-links,
 	.social-links a {
 		display: flex;
 	}
+
 	@media (max-width: 720px) {
 		.social-links {
 			display: none;
 		}
 	}
+
+	button {
+		display: block;
+	}
+
+	:popover-open {
+		display: block;
+		position: fixed;
+		margin: 0;
+		border: none;
+		inset: unset;
+		top: 0;
+		right: 0;
+		height: 100vh;
+		box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+	}
+
+	:popover-open nav {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	:popover-open nav a{
+		padding-inline: 2rem;
+	}
+
+	@media (min-width: 750px) {
+		[popover] {
+			display: contents;
+		}
+		button {
+			display: none;
+		}
+	}
+
 </style>
