@@ -13,6 +13,7 @@ import { SITE_TITLE } from '../consts';
 
 		<div id="menu-links" popover>
 			<nav class="internal-links">
+				<button popovertarget="menu-links" popovertargetaction="hide">Zatvori</button>
 				<HeaderLink href="/o-blokadama">O Blokadama</HeaderLink>
 				<HeaderLink href="/vesti">Vesti</HeaderLink>
 				<HeaderLink href="/akcije">Akcije</HeaderLink>
@@ -20,7 +21,6 @@ import { SITE_TITLE } from '../consts';
 				<HeaderLink href="/kontakt">Kontakt</HeaderLink>
 			</nav>
 		</div>
-
 	</nav>
 </header>
 
@@ -89,21 +89,46 @@ import { SITE_TITLE } from '../consts';
 		right: 0;
 		height: 100vh;
 		box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+
+		transition: translate 0.2s;
+		@starting-style {
+			translate: 100% 0;
+		}
+	}
+
+	[popover]::backdrop {
+		display: block;
+		opacity: 0;
+	}
+
+	[popover]:popover-open::backdrop {
+		transition: opacity 0.2s;
+		opacity: 1;
+		pointer-events: none;
+		background-color: rgba(0, 0, 0, 0.2);
+
+		@starting-style {
+			opacity: 0;
+		}
 	}
 
 	:popover-open nav {
-		padding-inline: 2rem;
+		padding: 2rem;
 		flex-direction: column;
 		align-items: start;
+	}
+
+	:popover-open a {
+		padding-bottom: 0;
 	}
 
 	@media (min-width: 750px) {
 		[popover] {
 			display: contents;
 		}
+
 		button {
 			display: none;
 		}
 	}
-
 </style>

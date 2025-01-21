@@ -167,28 +167,23 @@ import zastava from '../assets/images/zastava.jpg'
 	}
 
 	.tekst-slika {
-		display: flex;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
 		gap: 2rem;
 		align-items: stretch;
 	}
 
 	.tekst-slika div {
-		flex: 2;
+		grid-column: span 2;
 	}
-
-	.tekst-slika img {
-		flex: 1;
-	}
-
 
 	@media (max-width: 1000px) {
 		.tekst-slika {
-			flex-direction: column;
+			grid-template-columns: 1fr;
 		}
 	}
 
 	p {
 		text-align: justify;
 	}
-
 </style>
