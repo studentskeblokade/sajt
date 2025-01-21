@@ -1,18 +1,92 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+            <h1>Kontakt</h1>
+            <section>
+                <h2>Studenti u blokadi</h2>
+                <div class="nalozi">
+                    <a href="https://instagram.com/studenti_u_blokadi">Instagram</a>
+                    <a href="https://www.facebook.com/people/Studenti-u-blokadi-UB/61571631694236/">Facebook</a>
+                    <a href="https://x.com/studentblokade">Twitter</a>
+                </div>
+            </section>
+            <section>
+                <h2>Kontakti pojedinačnih fakulteta</h2>
+                <div class="nalozi">
+                    <a href="https://www.instagram.com/blokada.matf">Arhitektonski</a>
+                    <a href="https://www.instagram.com/blokada.matf">Građevinski</a>
+                    <a href="https://www.instagram.com/blokada.matf">Elektrotehnički</a>
+                    <a href="https://www.instagram.com/blokada.matf">Mašinski</a>
+                    <a href="https://www.instagram.com/blokada.matf">Poljoprivredni</a>
+                    <a href="https://www.instagram.com/blokada.matf">Rudarsko-geološki</a>
+                    <a href="https://www.instagram.com/blokada.matf">Saobraćajni</a>
+                    <a href="https://www.instagram.com/blokada.matf">Tehnički u Boru</a>
+                    <a href="https://www.instagram.com/blokada.matf">Tehnološko-metalurški</a>
+                    <a href="https://www.instagram.com/blokada.matf">Organizacione nauke</a>
+                    <a href="https://www.instagram.com/blokada.matf">Šumarski</a>
+                    <a href="https://www.instagram.com/blokada.matf">Geografski</a>
+                    <a href="https://www.instagram.com/blokada.matf">Biološki</a>
+                    <a href="https://www.instagram.com/blokada.matf">Fizička Hemiju</a>
+                    <a href="https://www.instagram.com/blokada.matf">Fizički</a>
+                    <a href="https://www.instagram.com/blokada.matf">Hemijski</a>
+                    <a href="https://www.instagram.com/blokada.matf">Matematički</a>
+                    <a href="https://www.instagram.com/blokada.matf">Medicinski</a>
+                    <a href="https://www.instagram.com/blokada.matf">Stomatološki</a>
+                    <a href="https://www.instagram.com/blokada.matf">Farmaceutski</a>
+                    <a href="https://www.instagram.com/blokada.matf">Veterinarska medicina</a>
+                    <a href="https://www.instagram.com/blokada.matf">Ekonomski</a>
+                    <a href="https://www.instagram.com/blokada.matf">Pravoslavni bogoslovski</a>
+                    <a href="https://www.instagram.com/blokada.matf">Obrazovanje učitelja i vaspitača</a>
+                    <a href="https://www.instagram.com/blokada.matf">Bezbednosti</a>
+                    <a href="https://www.instagram.com/blokada.matf">Specijalnu edukaciju i rehabilitaciju</a>
+                    <a href="https://www.instagram.com/blokada.matf">Političke nauke</a>
+                    <a href="https://www.instagram.com/blokada.matf">Sport i fizičko vaspitanja</a>
+                    <a href="https://www.instagram.com/blokada.matf">Filozofski</a>
+                    <a href="https://www.instagram.com/blokada.matf">Filološki</a>
+                    <a href="https://www.instagram.com/blokada.matf">Pravni</a>
+                </div>
+            </section>
+        </main>
+        <Footer />
+    </body>
+</html>
 
-<Layout
-        title="Kontakt"
-        description="Kontakti svih fakulteta u blokadi"
->
-    <h2>Instagram</h2>
-    <ul>
-        <li>
-            <a href="#">@studenti_u_blokadi</a>
-        </li>
-        <li>
-            <a href="#">@blokada.matf</a>
-        </li>
-    </ul>
-</Layout>
+<style>
+    .nalozi {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    a {
+        color: rgb(var(--black));
+        padding: 1rem 2rem;
+        border: 1px solid rgb(var(--black));
+        border-radius: .5rem;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: rgb(var(--gray));
+        border-color: rgb(var(--gray));;
+    }
+
+    section {
+        margin-top: 3rem;
+    }
+
+    h2 {
+        margin-bottom: 1rem;
+    }
+</style>

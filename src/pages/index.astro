@@ -3,6 +3,10 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { Image } from 'astro:assets';
+import indeks from '../assets/images/indeks.jpg'
+import megafon from '../assets/images/megafon.jpg'
+import zastava from '../assets/images/zastava.jpg'
 ---
 
 <!doctype html>
@@ -13,7 +17,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<Header />
 		<div class="title">
-			<h1>Studentske blokade</h1>
 		</div>
 		<main>
 			<section>
@@ -29,9 +32,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			</section>
 
 			<div class="collage">
-				<img src="/images/megafon.jpg" alt="">
-				<img src="/images/indeks.jpg" alt="">
-				<img src="/images/zastava.jpg" alt="">
+				<Image class="megafon" src={megafon} alt="" />
+				<Image class="indeks" src={indeks} alt="" />
+				<Image class="zastava" src={zastava} alt="" />
 			</div>
 
 			<section>	
@@ -55,14 +58,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 							Dolores minus animi mollitia sed quo tempore illum corporis excepturi quisquam voluptatibus accusamus, ab fuga, vitae, ullam et. Alias a culpa ab, quibusdam ipsum sunt corporis corrupti aliquam. Repellendus dicta ratione illum ex, cum molestiae optio atque natus, laboriosam ad eius? Tempore, nihil consequatur placeat natus ducimus ut dolor magnam accusamus. Quos sequi in dolore ex minus recusandae. Corrupti corporis culpa quis voluptas necessitatibus inventore harum sequi expedita, quae accusamus non autem eaque tempore unde libero vitae natus veniam! Optio qui, veniam possimus culpa itaque ullam maxime unde aliquid provident soluta doloribus ducimus eos dolor obcaecati quibusdam fugiat perspiciatis velit!
 						</p>
 					</div>
-					<img src="/images/zastava.jpg" alt="" class="float-right">
+					<Image src={megafon} alt="" />
 				</div>
 			</section>
 
 			<section>
 				<h2>Neki naslov</h2>
 				<div class="tekst-slika">
-					<img src="/images/zastava.jpg" alt="" class="float-right">
+					<Image src={megafon} alt="" />
 					<div>
 						<p>
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci natus deleniti laboriosam dolores ex ut commodi iure voluptatem! Fuga, quia, fugit quam expedita debitis vel vero inventore incidunt distinctio, dignissimos eum libero illo modi ea dolor aut doloribus assumenda sapiente mollitia commodi hic. Impedit assumenda deserunt, harum perspiciatis nemo placeat, accusantium unde voluptas, facere illum a aperiam voluptatibus iusto. Tempora iste, illum vel accusantium fugit voluptatem veritatis harum! Quas omnis voluptas voluptatum debitis veritatis quod obcaecati, a quos hic explicabo mollitia, expedita facilis corporis sapiente quo exercitationem aliquam? Eveniet ab dolores optio rem laborum esse magnam. Ipsum incidunt optio repellendus.
@@ -153,15 +156,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		height: 100%;
 	}
 
-	.collage img[src*="megafon"] {
-		grid-area: megafon;
-	}
+	.megafon { grid-area: megafon; }
+	.indeks { grid-area: indeks; }
 
-	.collage img[src*="indeks"] {
-		grid-area: indeks;
-	}
-
-	.collage img[src*="zastava"] {
+	.zastava {
 		grid-area: zastava;
 		object-position: bottom;
 		max-height: 20vh;
