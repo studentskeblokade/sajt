@@ -1,7 +1,29 @@
 collections:
-  - name: "news" # Used in routes, e.g., /admin/collections/blog
+  - name: "vesti" # Used in routes, e.g., /admin/collections/blog
     label: "Vesti" # Used in the UI
-    folder: "src/content/news" # The path to the folder where the documents are stored
+    folder: "src/content/vesti" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields for each document, usually in frontmatter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+      - { label: "Hero Image", name: "heroImage", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "akcije" # Used in routes, e.g., /admin/collections/blog
+    label: "Akcije" # Used in the UI
+    folder: "src/content/akcije" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields for each document, usually in frontmatter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+      - { label: "Hero Image", name: "heroImage", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "donacije" # Used in routes, e.g., /admin/collections/blog
+    label: "Donacije" # Used in the UI
+    folder: "src/content/donacije" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     fields: # The fields for each document, usually in frontmatter
       - { label: "Title", name: "title", widget: "string" }
@@ -15,4 +37,4 @@ public_folder: "/images" # The src attribute for uploaded media
 backend:
   name: github
   repo: studentskeblokade/sajt
-  branch: to-publish
+  branch: main
