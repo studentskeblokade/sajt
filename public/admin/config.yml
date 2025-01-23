@@ -1,40 +1,60 @@
 collections:
-  - name: "vesti" # Used in routes, e.g., /admin/collections/blog
-    label: "Vesti" # Used in the UI
-    folder: "src/content/vesti" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields for each document, usually in frontmatter
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
-      - { label: "Hero Image", name: "heroImage", widget: "image" }
-      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "vesti"
+    label: "Vesti"
+    folder: "src/content/vesti"
+    create: true
+    fields:
+      - { label: "Naslov", name: "title", widget: "string" }
+      - { label: "Opis", name: "description", widget: "string" }
+      - { label: "Datum objavljivanja", name: "pubDate", widget: "datetime" }
+      - { label: "Glavna slika", name: "heroImage", widget: "image" }
+      - { label: "tekst", name: "body", widget: "markdown" }
 
-  - name: "akcije" # Used in routes, e.g., /admin/collections/blog
-    label: "Akcije" # Used in the UI
-    folder: "src/content/akcije" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields for each document, usually in frontmatter
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
-      - { label: "Hero Image", name: "heroImage", widget: "image" }
-      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "akcije"
+    label: "Akcije"
+    folder: "src/content/akcije"
+    create: true
+    fields:
+      - { label: "Naslov", name: "title", widget: "string" }
+      - { label: "Opis", name: "description", widget: "string" }
+      - { label: "Datum objavljivanja", name: "pubDate", widget: "datetime" }
+      - { label: "Glavna slika", name: "heroImage", widget: "image" }
+      - { label: "tekst", name: "body", widget: "markdown" }
 
-  - name: "donacije" # Used in routes, e.g., /admin/collections/blog
-    label: "Donacije" # Used in the UI
-    folder: "src/content/donacije" # The path to the folder where the documents are stored
-    create: false # Allow users to create new documents in this collection
-    fields: # The fields for each document, usually in frontmatter
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
-      - { label: "Hero Image", name: "heroImage", widget: "image" }
-      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "donacije"
+    label: "Namirnice za donacije"
+    folder: "src/content/donacije"
+    create: false
+    identifier_field: fakultet
+    fields:
+      -  name: "fakultet"
+         widget: "hidden"
+      - label: "namirnice"
+        name: "namirnice"
+        label_singular: "namirnica"
+        widget: "list"
+        fields:
+          - label: "Naziv"
+            name: "naziv"
+            widget: "string"
+          - label: "Dodatni opis"
+            name: "opis"
+            widget: "text"
+          - label: "Prioritet"
+            name: "prioritet"
+            widget: "select"
+            options: [ "visok", "srednji", "nizak" ]
 
 media_folder: "public/images" # Location where files will be stored in the repo
 public_folder: "/images" # The src attribute for uploaded media
+locale: hr
+
+local_backend: true
+
 backend:
-  name: github
-  repo: studentskeblokade/sajt
-  branch: main
+  name: git-gateway
+#
+#backend:
+#  name: github
+#  repo: studentskeblokade/sajt
+#  branch: main

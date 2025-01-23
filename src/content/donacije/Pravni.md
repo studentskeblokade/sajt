@@ -1,0 +1,3 @@
+---
+fakultet: Pravni fakultet
+---

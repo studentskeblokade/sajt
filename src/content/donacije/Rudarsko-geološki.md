@@ -1,0 +1,3 @@
+---
+fakultet: Rudarsko-geološki fakultet
+---

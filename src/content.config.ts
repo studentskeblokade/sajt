@@ -29,5 +29,18 @@ const akcije = defineCollection({
 	}),
 });
 
+const donacije = defineCollection({
+	// Load Markdown and MDX files in the `src/content/vesti/` directory.
+	loader: glob({ base: './src/content/donacije', pattern: '**/*.{md,mdx}' }),
+	// Type-check frontmatter using a schema
+	schema: z.object({
+		fakultet: z.string(),
+		namirnice: z.array(z.object({
+			naziv: z.string(),
+			prioritet: z.enum(["visok", "srednji", "nizak"]),
+			opis: z.string().optional(),
+		})).optional(),
+	}),
+});
 
-export const collections = { vesti, akcije };
+export const collections = { vesti, akcije, donacije };

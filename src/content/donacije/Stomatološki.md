@@ -1,0 +1,3 @@
+---
+fakultet: Stomatološki fakultet
+---

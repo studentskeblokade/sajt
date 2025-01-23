@@ -1,0 +1,4 @@
+---
+fakultet: Elektrotehnički fakultet
+---
+

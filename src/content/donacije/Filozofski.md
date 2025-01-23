@@ -1,0 +1,3 @@
+---
+fakultet: Filozofski fakultet
+---
