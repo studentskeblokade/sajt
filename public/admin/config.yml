@@ -49,12 +49,7 @@ media_folder: "public/images" # Location where files will be stored in the repo
 public_folder: "/images" # The src attribute for uploaded media
 locale: hr
 
-local_backend: true
-
 backend:
-  name: git-gateway
-#
-#backend:
-#  name: github
-#  repo: studentskeblokade/sajt
-#  branch: main
+  name: github
+  repo: studentskeblokade/sajt
+  branch: main
