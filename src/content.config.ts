@@ -35,6 +35,7 @@ const donacije = defineCollection({
 	// Type-check frontmatter using a schema
 	schema: z.object({
 		fakultet: z.string(),
+		koordinate: z.array(z.number()).length(2).optional(),
 		namirnice: z.array(z.object({
 			naziv: z.string(),
 			prioritet: z.enum(["visok", "srednji", "nizak"]),
