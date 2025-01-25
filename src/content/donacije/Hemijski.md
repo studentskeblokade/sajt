@@ -1,3 +1,0 @@
----
-fakultet: Hemijski fakultet
----
