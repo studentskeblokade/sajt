@@ -96,44 +96,44 @@ const fakulteti = (await getCollection('donacije')).filter(fakultet => typeof fa
         <p>Ukoliko želite da pomognete našoj borbi, ispod se nalazi spisak univerziteta i njihovih institucija u blokadi, te
             je uz svaku takođe i prikačena lista namirnica koje su im trenutno potrebne.</p>
         <arcgis-map />
-        <section>
-            <h2>Lista fakulteta</h2>
-            <search>
-                <label for="pretraga">Pretraga</label>
-                <input id="pretraga" type="text"/>
-                <button>Pretraži</button>
-            </search>
-            <hr>
-            {fakulteti.map(async fakultet => {
-                if (typeof fakultet.data.namirnice === "undefined") { return null; }
+        <!--<section>-->
+        <!--    <h2>Lista fakulteta</h2>-->
+        <!--    <search>-->
+        <!--        <label for="pretraga">Pretraga</label>-->
+        <!--        <input id="pretraga" type="text"/>-->
+        <!--        <button>Pretraži</button>-->
+        <!--    </search>-->
+        <!--    <hr>-->
+        <!--    {fakulteti.map(async fakultet => {-->
+        <!--        if (typeof fakultet.data.namirnice === "undefined") { return null; }-->
 
-                const visok = fakultet.data.namirnice.filter(namirnica => namirnica.prioritet === "visok");
-                const srednji = fakultet.data.namirnice.filter(namirnica => namirnica.prioritet === "srednji");
-                const nizak = fakultet.data.namirnice.filter(namirnica => namirnica.prioritet === "nizak");
-                return (
-                    <article>
-                        <h3>{fakultet.data.fakultet}</h3>
-                        {visok.length > 0 && <h4>Visok prioritet</h4>
-                            <ul>
-                                {visok.map(potrebsitna => <li>{potrebsitna.naziv}</li>)}
-                            </ul>
-                        }
+        <!--        const visok = fakultet.data.namirnice.filter(namirnica => namirnica.prioritet === "visok");-->
+        <!--        const srednji = fakultet.data.namirnice.filter(namirnica => namirnica.prioritet === "srednji");-->
+        <!--        const nizak = fakultet.data.namirnice.filter(namirnica => namirnica.prioritet === "nizak");-->
+        <!--        return (-->
+        <!--            <article>-->
+        <!--                <h3>{fakultet.data.fakultet}</h3>-->
+        <!--                {visok.length > 0 && <h4>Visok prioritet</h4>-->
+        <!--                    <ul>-->
+        <!--                        {visok.map(potrebsitna => <li>{potrebsitna.naziv}</li>)}-->
+        <!--                    </ul>-->
+        <!--                }-->
 
-                        {srednji.length > 0 && <h4>Srednji prioritet</h4>
-                            <ul>
-                                {srednji.map(potrebsitna => <li>{potrebsitna.naziv}</li>)}
-                            </ul>
-                        }
+        <!--                {srednji.length > 0 && <h4>Srednji prioritet</h4>-->
+        <!--                    <ul>-->
+        <!--                        {srednji.map(potrebsitna => <li>{potrebsitna.naziv}</li>)}-->
+        <!--                    </ul>-->
+        <!--                }-->
 
-                        {nizak.length > 0 && <h4>Nizak prioritet</h4>
-                            <ul>
-                                {nizak.map(potrebsitna => <li>{potrebsitna.naziv}</li>)}
-                            </ul>
-                        }
-                    </article>
-                )
-            })}
-        </section>
+        <!--                {nizak.length > 0 && <h4>Nizak prioritet</h4>-->
+        <!--                    <ul>-->
+        <!--                        {nizak.map(potrebsitna => <li>{potrebsitna.naziv}</li>)}-->
+        <!--                    </ul>-->
+        <!--                }-->
+        <!--            </article>-->
+        <!--        )-->
+        <!--    })}-->
+        <!--</section>-->
     </main>
     <Footer/>
 </body>
@@ -146,7 +146,37 @@ const fakulteti = (await getCollection('donacije')).filter(fakultet => typeof fa
     import SimpleMarkerSymbol from "@arcgis/core/symbols/SimpleMarkerSymbol";
     import Graphic from "@arcgis/core/Graphic";
 
-    const fakulteti = JSON.parse(document.body.dataset.fakulteti);
+    const centar = [20.457273, 44.787197]
+    const koordinate = new Map()
+    koordinate.set("MATF", [20.458708804167117, 44.819930990382986]);
+    koordinate.set("ETF", [20.476434674090246, 44.80580041357579]);
+    koordinate.set("Farmaceutski Fakultet", [20.49493490008412, 44.74748077309478]);
+    koordinate.set("Poljoprivredni Fakultet", [20.412373779366455, 44.840525329097815]);
+    koordinate.set("Rektorat UB", [20.45758667942569, 44.81846092246269])
+
+
+    const response = await fetch("/.netlify/functions/blokadnedonacije");
+    const blokadnedonacije = await response.text();
+
+    const parser = new DOMParser();
+    const htmlDoc = parser.parseFromString(blokadnedonacije, 'text/html');
+
+    const fakulteti = [...htmlDoc.querySelectorAll(".card.m-3")].map(el => {
+        return {
+            data: {
+                fakultet: el.querySelector("h5")?.innerText,
+                namirnice: [...el.querySelectorAll("li")].map(el => {
+                    return {
+                        namirnica: el.querySelector("span")?.innerText,
+                        vaznsost: [...el.querySelectorAll("span.badge.rounded-pill")].map(el => el.innerText),
+                    }
+                }),
+                koordinate: koordinate.get(el.querySelector("h5")?.innerText),
+            }
+        }
+    }).filter(fakultet => typeof fakultet.data.koordinate !== 'undefined');
+
+    // const fakulteti = JSON.parse(document.body.dataset.fakulteti);
 
     const arcgisMap = document.querySelector("arcgis-map");
     arcgisMap?.addEventListener("arcgisViewReadyChange", () => {
@@ -169,6 +199,7 @@ const fakulteti = (await getCollection('donacije')).filter(fakultet => typeof fa
             const graphic = new Graphic({
                 symbol: marker, geometry: point, popupTemplate: {
                     title: fakultet.data.fakultet,
+                    content: `<ul>${fakultet.data.namirnice.map(el => "<li>" + el.vaznsost.join() + " - " + el.namirnica + "</li>").join("")}</ul>`
                 }
             });
 
