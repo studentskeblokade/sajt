@@ -19,6 +19,14 @@ const fakulteti = (await getCollection('donacije')).filter(fakultet => typeof fa
         touch-action: none;
     }
 
+    :global(arcgis-map ::after) {
+        outline: none !important;
+    }
+
+    arcgis-map:has(:focus) {
+        border-color: var(--accent);
+    }
+
     article {
         border: 2px solid black;
         border-radius: 1rem;
@@ -97,37 +105,34 @@ const fakulteti = (await getCollection('donacije')).filter(fakultet => typeof fa
             </search>
             <hr>
             {fakulteti.map(async fakultet => {
-                if (typeof fakultet.data.namirnice === "undefined") {
-                    return null;
-                }
+                if (typeof fakultet.data.namirnice === "undefined") { return null; }
 
                 const visok = fakultet.data.namirnice.filter(namirnica => namirnica.prioritet === "visok");
                 const srednji = fakultet.data.namirnice.filter(namirnica => namirnica.prioritet === "srednji");
                 const nizak = fakultet.data.namirnice.filter(namirnica => namirnica.prioritet === "nizak");
                 return (
-                        <article>
-                            <h3>{fakultet.data.fakultet}</h3>
-                            {visok.length > 0 && <h4>Visok prioritet</h4>
-                                    <ul>
-                                        {visok.map(potrebsitna =>
-                                                <li>{potrebsitna.naziv}</li>)}
-                                    </ul>}
+                    <article>
+                        <h3>{fakultet.data.fakultet}</h3>
+                        {visok.length > 0 && <h4>Visok prioritet</h4>
+                            <ul>
+                                {visok.map(potrebsitna => <li>{potrebsitna.naziv}</li>)}
+                            </ul>
+                        }
 
-                            {srednji.length > 0 && <h4>Srednji prioritet</h4>
-                                    <ul>
-                                        {srednji.map(potrebsitna =>
-                                                <li>{potrebsitna.naziv}</li>)}
-                                    </ul>}
+                        {srednji.length > 0 && <h4>Srednji prioritet</h4>
+                            <ul>
+                                {srednji.map(potrebsitna => <li>{potrebsitna.naziv}</li>)}
+                            </ul>
+                        }
 
-
-                            {nizak.length > 0 && <h4>Nizak prioritet</h4>
-                                    <ul>
-                                        {nizak.map(potrebsitna =>
-                                                <li>{potrebsitna.naziv}</li>)}
-                                    </ul>}
-                        </article>)
+                        {nizak.length > 0 && <h4>Nizak prioritet</h4>
+                            <ul>
+                                {nizak.map(potrebsitna => <li>{potrebsitna.naziv}</li>)}
+                            </ul>
+                        }
+                    </article>
+                )
             })}
-
         </section>
     </main>
     <Footer/>
