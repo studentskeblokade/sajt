@@ -5,7 +5,6 @@ collections:
     create: true
     fields:
       - { label: "Naslov", name: "title", widget: "string" }
-      - { label: "Opis", name: "description", widget: "string" }
       - { label: "Datum objavljivanja", name: "pubDate", widget: "datetime" }
       - { label: "Glavna slika", name: "heroImage", widget: "image" }
       - { label: "tekst", name: "body", widget: "markdown" }
@@ -16,7 +15,6 @@ collections:
     create: true
     fields:
       - { label: "Naslov", name: "title", widget: "string" }
-      - { label: "Opis", name: "description", widget: "string" }
       - { label: "Datum objavljivanja", name: "pubDate", widget: "datetime" }
       - { label: "Glavna slika", name: "heroImage", widget: "image" }
       - { label: "tekst", name: "body", widget: "markdown" }

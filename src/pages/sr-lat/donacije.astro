@@ -93,8 +93,9 @@ const fakulteti = (await getCollection('donacije')).filter(fakultet => typeof fa
     <Header/>
     <main>
         <h1>Donacije!</h1>
-        <p>Ukoliko želite da pomognete našoj borbi, ispod se nalazi spisak univerziteta i njihovih institucija u blokadi, te
-            je uz svaku takođe i prikačena lista namirnica koje su im trenutno potrebne.</p>
+        <p>
+            Ako želite da podržite našu borbu za pravdu i solidarnost, pozivamo vas da donacijama pomognete studentima u blokadi. Ispod se nalazi detaljan spisak univerziteta i njihovih fakulteta koji su trenutno u blokadi, zajedno sa listom najpotrebnijih namirnica i potrepština za svaki od njih.
+        </p>
         <arcgis-map />
         <!--<section>-->
         <!--    <h2>Lista fakulteta</h2>-->
@@ -146,13 +147,39 @@ const fakulteti = (await getCollection('donacije')).filter(fakultet => typeof fa
     import SimpleMarkerSymbol from "@arcgis/core/symbols/SimpleMarkerSymbol";
     import Graphic from "@arcgis/core/Graphic";
 
-    const centar = [20.457273, 44.787197]
     const koordinate = new Map()
-    koordinate.set("MATF", [20.458708804167117, 44.819930990382986]);
+    koordinate.set("Arhitektonski Fakultet", [20.476271197910265, 44.805554076225896]);
+    koordinate.set("Fakultet Bezbednosti", [20.47895220572107, 44.791339901640825]);
+    koordinate.set("Ekonomski Fakultet", [20.454924904335936, 44.81186202198768]);
     koordinate.set("ETF", [20.476434674090246, 44.80580041357579]);
     koordinate.set("Farmaceutski Fakultet", [20.49493490008412, 44.74748077309478]);
+    koordinate.set("Filološki, Biološki i Geografski fakultet", [20.45721637484622, 44.8188929708989])
+    koordinate.set("Filozofski Fakultet", [20.45701670463771, 44.8190864839996]);
+    koordinate.set("Fizički Fakultet", [20.459471630152517, 44.819145810685384]);
+    koordinate.set("Hemijski Fakultet", [20.45932693515424, 44.81963198896325]);
+    koordinate.set("MATF", [20.458708804167117, 44.819930990382986]);
+    koordinate.set("Mašinski Fakultet", [20.47732218387936, 44.80685725995381]);
+    koordinate.set("Fakultet Politčkih Nauka", [20.475324870976515, 44.773747707215584]);
     koordinate.set("Poljoprivredni Fakultet", [20.412373779366455, 44.840525329097815]);
+    koordinate.set("Pravni Fakultet", [20.47276478131266, 44.80733758557524]);
     koordinate.set("Rektorat UB", [20.45758667942569, 44.81846092246269])
+    koordinate.set("FASPER", [20.456003311387224, 44.82641993069861]);
+    koordinate.set("Stomatološki Fakultet", [20.467013396375556, 44.79610329835709]);
+    koordinate.set("TMF", [20.476279101570963, 44.807421932156196]);
+    koordinate.set("Veterinarska Medicina", [20.46558157946399, 44.794323616534044]);
+
+    koordinate.set("Fakultet muzičke umetnosti", [20.464306142446432, 44.805580394523595]);
+    koordinate.set("Fakultet likovnih umetnosti", [20.453532860655102, 44.819542839364395]);
+    koordinate.set("Fakultet primenjenih umetnosti", [20.45173448773321, 44.81701448367373]);
+
+    koordinate.set("Akademija struk. stud. Politehnika", [20.490598539656695, 44.80384616383724]);
+    koordinate.set("Visoka ICT skola", [20.48437188263611, 44.81426859304584]);
+    koordinate.set("BAPUSS - Umetnicki", [20.49457738392238, 44.80728000014744]);
+    koordinate.set("BAPUSS - Poslovni", [20.481041268854053, 44.804199656582895]);
+    koordinate.set("Visoka zdravstvena škola", [20.380804982159084, 44.85844162429406]);
+    koordinate.set("VIŠER", [20.47995649612723, 44.76832552221673]);
+
+    koordinate.set("Univerzitet Metropolitan", [20.455155840507967, 44.83055028434515]);
 
 
     const response = await fetch("/.netlify/functions/blokadnedonacije");
