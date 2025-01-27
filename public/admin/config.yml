@@ -49,5 +49,5 @@ locale: hr
 
 backend:
   name: github
-  repo: studentskeblokade/sajt
+  repo: blokada-rs/sajt
   branch: main
