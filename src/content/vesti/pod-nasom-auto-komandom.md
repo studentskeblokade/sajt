@@ -8,7 +8,8 @@ Pozivamo vas da nam se pridružite na dvadesetčetvoročasovnoj blokadi Auto-kom
 
 ![Granice blokade autokomande](/images/autokomanda-granice.png)
 
-Satnica aktivnosti
+## Satnica aktivnosti
+
 - 10.00 Početak skupa na Auto-komandi
 - 11.52 Petnaest minuta tišine radi odavanja pošte nastradalima
 - 13.00 Početak “Kuvanja sa studentima”
@@ -16,7 +17,8 @@ Satnica aktivnosti
 - 18.00 Dolazak radnika i njihov govor
 - 20.00 Uključivanje bliceva na telefonima i čitanje zahteva
 
-Mere opreza na blokadi
+## Mere opreza na blokadi
+
 Molimo vas da tokom blokade na Auto-komandi ne izlazite na autoput, jer takve akcije mogu ugroziti vašu bezbednost i bezbednost drugih učesnika u saobraćaju. Takođe, molimo vas da ne izlazite na šine kako bismo omogućili nesmetan prolazak hitne pomoći, kao i da ne dolazite na lokaciju pre 10 časova.
 
 Organizacija blokade zamišljena je kao miran protest koji jasno šalje poruku, ali ne sme dovesti do incidenata ili nepotrebnih rizika. Ako se ipak odlučite na takav korak, napominjemo da to činite isključivo na svoju odgovornost. Apelujemo na sve da se pridržavaju dogovorenih pravila blokade i plana kretanja kako bismo doprinosili očuvanju sigurnosti svih prisutnih.
